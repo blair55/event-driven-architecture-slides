@@ -1,0 +1,269 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Event Driven Architecture</title>
+    <meta name="description" content="Event Driven Architecture &amp; Kafka">
+    <meta name="author" content="Nick Blair">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/Simple.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section >
+<h2>Event Driven Architecture</h2>
+</section>
+<section >
+<section >
+<h2>Quiz</h2>
+</section>
+<section >
+<p><img src="images/quiz/eb.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/eb_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/rs.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/rs_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/sf1.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/sf2.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/sf_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/p.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/p_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/e.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/e_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/js.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/js_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/csfs.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/csfs_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/g.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/g_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/gh.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/gh_a.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/k.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/quiz/k_a.png" alt="" /></p>
+</section>
+</section>
+<section >
+<section >
+<h2>Service Oriented Architecture</h2>
+</section>
+<section >
+<h4>Service Oriented Architecture</h4>
+<p><img src="images/soa/manageable.png" alt="" /></p>
+</section>
+<section >
+<h4>Service Oriented Architecture</h4>
+<p><img src="images/soa/manageable2.png" alt="" /></p>
+<aside class="notes">
+point to point<br/>
+growth scale / surfaces / complexity<br/>
+</aside>
+</section>
+<section >
+<h4>Service Oriented Architecture</h4>
+<p><img src="images/soa/unmanageable.png" alt="" /></p>
+<aside class="notes">
+pull problem - of lines of connectivity increases<br/>
+push problem - multiple touch points<br/>
+any one system is easy to manage but hard to debug the full thing<br/>
+dependencies between teams<br/>
+</aside>
+</section>
+<section >
+<h2>Event Driven Architecture</h2>
+</section>
+<section >
+<h4>Event Driven Architecture</h4>
+<p><img src="images/eda/broker.png" alt="" /></p>
+</section>
+<section >
+<h4>Event Driven Architecture</h4>
+<p><img src="images/eda/brokericon.png" alt="" /></p>
+</section>
+<section >
+<h4>Event Driven Architeture</h4>
+<p><img src="images/eda/pull.png" alt="" /></p>
+<aside class="notes">
+inverts the push relationship between services<br/>
+pull model is improved because new systems can subscribe<br/>
+capture and store their own data for private use<br/>
+</aside>
+</section>
+<section >
+<p><img src="images/eda/tree.png" alt="" /></p>
+<aside class="notes">
+problem that if noone is subscribed then that data is lost<br/>
+problem for new services that can only subscribe from that moment in time<br/>
+</aside>
+</section>
+<section >
+<p><img src="images/eda/nosubscribers.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/eda/venn1.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/eda/venn2.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/eda/venn3.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/eda/commitlog.png" alt="" /></p>
+<aside class="notes">
+new service can replay all messages since beginning of time and catch up<br/>
+existing service can replay messages it misprocessed or rehydrate its db<br/>
+</aside>
+</section>
+<section >
+<h4>Intelligent Alerts</h4>
+<p><img src="images/eda/alerts.png" alt="" /></p>
+</section>
+<section >
+<h4>Intelligent Alerts</h4>
+<p><img src="images/eda/alerts_plus.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/eda/arch.png" alt="" /></p>
+</section>
+<section >
+<h3>Event Driven Architecture</h3>
+<ul>
+<li>Single source of truth</li>
+</ul>
+</section>
+<section >
+<h3>Event Driven Architecture</h3>
+<ul>
+<li>Single source of truth</li>
+<li>Permits more surfaces</li>
+</ul>
+</section>
+<section >
+<h3>Event Driven Architecture</h3>
+<ul>
+<li>Single source of truth</li>
+<li>Permits more surfaces</li>
+<li>Reduces team dependencies</li>
+</ul>
+</section>
+<section >
+<h3>FIN</h3>
+</section>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
+
