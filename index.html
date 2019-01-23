@@ -118,6 +118,9 @@
 </section>
 <section >
 <p><img src="images/quiz/k_a.png" alt="" /></p>
+<aside class="notes">
+will let us do EDA<br/>
+</aside>
 </section>
 </section>
 <section >
@@ -140,9 +143,9 @@ growth scale / surfaces / complexity<br/>
 <h4>Service Oriented Architecture</h4>
 <p><img src="images/soa/unmanageable.png" alt="" /></p>
 <aside class="notes">
-pull problem - of lines of connectivity increases<br/>
-push problem - multiple touch points<br/>
-any one system is easy to manage but hard to debug the full thing<br/>
+lines of connectivity increases<br/>
+multiple touch points<br/>
+debuggging<br/>
 dependencies between teams<br/>
 </aside>
 </section>
@@ -161,8 +164,8 @@ dependencies between teams<br/>
 <h4>Event Driven Architeture</h4>
 <p><img src="images/eda/pull.png" alt="" /></p>
 <aside class="notes">
-inverts the push relationship between services<br/>
-pull model is improved because new systems can subscribe<br/>
+inverts the relationship<br/>
+Service A no longer the owner & doesn't need to change<br/>
 capture and store their own data for private use<br/>
 </aside>
 </section>
@@ -175,6 +178,9 @@ problem for new services that can only subscribe from that moment in time<br/>
 </section>
 <section >
 <p><img src="images/eda/nosubscribers.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/eda/dbicon.png" alt="" /></p>
 </section>
 <section >
 <p><img src="images/eda/venn1.png" alt="" /></p>
@@ -207,19 +213,19 @@ existing service can replay messages it misprocessed or rehydrate its db<br/>
 <h3>Event Driven Architecture</h3>
 <ul>
 <li>Single source of truth</li>
+<li>Fewer touch points</li>
 </ul>
 </section>
 <section >
 <h3>Event Driven Architecture</h3>
 <ul>
-<li>Single source of truth</li>
-<li>Permits more surfaces</li>
+<li>Messages can be replayed</li>
+<li>Time travel</li>
 </ul>
 </section>
 <section >
 <h3>Event Driven Architecture</h3>
 <ul>
-<li>Single source of truth</li>
 <li>Permits more surfaces</li>
 <li>Reduces team dependencies</li>
 </ul>
